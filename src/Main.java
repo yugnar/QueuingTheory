@@ -17,5 +17,19 @@ public class Main {
         System.out.println("lambdae: " + mmsk.lambdae());
         System.out.println("wq: " + mmsk.wq());
         System.out.println("w: " + mmsk.w());
+
+        /*
+            MM1
+        */
+        System.out.println("MM1");
+        MmUno mmuno = new MmUno(2,3);
+        System.out.println("cn: "+mmuno.cn(3));
+        System.out.println("pn: "+mmuno.pn(0));
+        System.out.println("p: "+mmuno.p());
+        System.out.println("po: "+mmuno.po());
+        System.out.println("lq: "+mmuno.lq());
+        System.out.println("l: "+mmuno.l());
+        System.out.println("wq: "+mmuno.wq());
+        System.out.println("w: "+mmuno.w());
     }
 }
