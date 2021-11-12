@@ -5,7 +5,6 @@ public class Main {
          */
         Mmsk mmsk = new Mmsk(2, 3, 1, 3);
         System.out.println("ro: " + mmsk.ro());
-        System.out.println("cn: " + mmsk.cn(3));
         System.out.println("p0: " + mmsk.p0());
         System.out.println("pk: " + mmsk.pn(mmsk.getK()));
         System.out.println("lq: " + mmsk.lq());

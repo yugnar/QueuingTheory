@@ -19,12 +19,13 @@ public class Page {
 
     //Botones
     JButton mm1Buttton=new JButton("M/M/1");
-    JButton mmskButton=new JButton("M/M/S/K");
+    JButton mmskButton=new JButton("M/M/s/K");
     JButton mmsButton=new JButton("M/M/s");
     JButton mg1Button=new JButton("M/G/1");
 
     //Ventanas
     Mm1Page mm1 = new Mm1Page();
+    MmskPage mmsk = new MmskPage();
 
     public void run(){
 
@@ -71,6 +72,7 @@ public class Page {
 
         //Iniciar todos
         mm1.run();
+        mmsk.run();
 
         //Botones
 
@@ -79,6 +81,15 @@ public class Page {
             public void actionPerformed(ActionEvent e) {
                 frameInicial.setVisible(false);
                 mm1.setVisible();
+
+            }
+        });
+
+        mmskButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameInicial.setVisible(false);
+                mmsk.setVisible();
 
             }
         });
