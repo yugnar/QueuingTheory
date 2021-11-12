@@ -44,7 +44,7 @@ public class MmskPage {
 
     public void run() {
 
-        frameMmsk.setSize(10000, 10000);
+        frameMmsk.setSize(1000, 1000);
         frameMmsk.setLayout(null);
         frameMmsk.setVisible(false);
 
@@ -69,49 +69,50 @@ public class MmskPage {
         reiniciar.setBounds(100, 700, 200, 40);
         regresar.setBounds(10, 10, 100, 30);
 
+        /*
         cn.setBounds(500, 100, 400, 40);
         cn.setVisible(false);
         cnRes.setBounds(500, 125, 400, 40);
         cnRes.setVisible(false);
-
-        p.setBounds(500, 175, 400, 40);
+         */
+        p.setBounds(500, 100, 400, 40);
         p.setVisible(false);
-        pRes.setBounds(500, 200, 400, 40);
+        pRes.setBounds(500, 125, 400, 40);
         pRes.setVisible(false);
 
-        p0.setBounds(500, 250, 400, 40);
+        p0.setBounds(500, 175, 400, 40);
         p0.setVisible(false);
-        p0Res.setBounds(500, 275, 400, 40);
+        p0Res.setBounds(500, 200, 400, 40);
         p0Res.setVisible(false);
 
-        pK.setBounds(500, 325, 400, 40);
+        pK.setBounds(500, 250, 400, 40);
         pK.setVisible(false);
-        pKRes.setBounds(500, 350, 400, 40);
+        pKRes.setBounds(500, 275, 400, 40);
         pKRes.setVisible(false);
 
-        lambdae.setBounds(500, 400, 400, 40);
+        lambdae.setBounds(500, 325, 400, 40);
         lambdae.setVisible(false);
-        lambdaeRes.setBounds(500, 425, 400, 40);
+        lambdaeRes.setBounds(500, 350, 400, 40);
         lambdaeRes.setVisible(false);
 
-        lq.setBounds(500, 475, 400, 40);
+        lq.setBounds(500, 400, 400, 40);
         lq.setVisible(false);
-        lqRes.setBounds(500, 450, 400, 40);
+        lqRes.setBounds(500, 425, 400, 40);
         lqRes.setVisible(false);
 
-        l.setBounds(500, 500, 400, 40);
+        l.setBounds(500, 475, 400, 40);
         l.setVisible(false);
-        lRes.setBounds(500, 525, 400, 40);
+        lRes.setBounds(500, 500, 400, 40);
         lRes.setVisible(false);
 
-        wq.setBounds(500, 575, 400, 40);
+        wq.setBounds(500, 550, 400, 40);
         wq.setVisible(false);
-        wqRes.setBounds(500, 600, 400, 40);
+        wqRes.setBounds(500, 575, 400, 40);
         wqRes.setVisible(false);
 
-        w.setBounds(500, 650, 400, 40);
+        w.setBounds(500, 625, 400, 40);
         w.setVisible(false);
-        wRes.setBounds(500, 675, 400, 40);
+        wRes.setBounds(500, 650, 400, 40);
         wRes.setVisible(false);
 
         frameMmsk.add(titulommsk);
@@ -180,7 +181,7 @@ public class MmskPage {
                 int l = value.length();
                 if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
                     sPoner.setEditable(true);
-                    sTexto.setText("Numero usuarios");
+                    sTexto.setText("Numero de servidores (s)");
                 } else {
                     sPoner.setEditable(false);
                     sTexto.setText("* Ingresa solo números (0-9)");
@@ -194,7 +195,7 @@ public class MmskPage {
                 int l = value.length();
                 if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
                     kPoner.setEditable(true);
-                    kTexto.setText("Probabilidad de n usuarios en el sistema");
+                    kTexto.setText("Capacidad (k)");
                 } else {
                     kPoner.setEditable(false);
                     kTexto.setText("* Ingresa solo números (0-9)");
@@ -223,6 +224,7 @@ public class MmskPage {
                     } else {
                         JOptionPane.showMessageDialog(null,
                                 "El sistema no es estable, por favor ingresa un sistema estable.");
+                        desactivarTodo();
                         return;
                     }
 
@@ -234,6 +236,7 @@ public class MmskPage {
                     lRes.setText(String.valueOf(mmsk.l()));
                     wqRes.setText(String.valueOf(mmsk.wq()));
                     wRes.setText(String.valueOf(mmsk.w()));
+                    activarTodo();
                 }
             }
         });

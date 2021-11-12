@@ -12,7 +12,7 @@ public class Page {
     //labels
     JLabel tituloInicial= new JLabel("Tecnológico de Monterrey", SwingConstants.CENTER);
     JLabel tituloProyecto= new JLabel("Proyecto 2 - Métodos Cuantitativos y Simulación", SwingConstants.CENTER);
-    JLabel tituloNumeros = new JLabel("Teoria de numeros", SwingConstants.CENTER);
+    JLabel tituloNumeros = new JLabel("Teoria de colas", SwingConstants.CENTER);
     JLabel labelEquipo = new JLabel("Miembros del equipo: Oscar Contreras, Jorge Akio Olvera, Miguel Hernández, Mónica Lara & Rafael Rojas.", SwingConstants.CENTER);
     JLabel labelExplicacion = new JLabel("<html><p>Este programa muestra las diferenties teorias de colas. " +
             "Se encuentra los método de 1) MM1 \n 2) MMSK \n 3)OTRO \n  4)OTRO " );

@@ -218,6 +218,7 @@ public class Mm1Page {
                         JOptionPane.showMessageDialog(null, "El sistema es estable.");
                     }else{
                         JOptionPane.showMessageDialog(null, "El sistema no es estable, por favor ingresa un sistema estable.");
+                        desactivarTodo();
                         return;
                     }
 
