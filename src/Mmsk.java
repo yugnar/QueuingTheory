@@ -46,12 +46,8 @@ public class Mmsk implements IModel {
     }
 
     @Override
-    public double ro() throws InvalidSystemException {
-        double ro = lambda / (s * miu);
-        if (ro > 1) {
-          throw new InvalidSystemException("Ro no debe ser mayor a 1.");
-        }
-        return ro;
+    public double ro() {
+        return lambda / (s * miu);
     }
 
     @Override
@@ -111,15 +107,10 @@ public class Mmsk implements IModel {
 
     @Override
     public double lq() {
-        try {
-            double factor1Top = p0() * Math.pow(lambda / miu, s) * ro();
-            double factor1Bottom = Utils.factorial(s) * Math.pow(1 - ro(), 2);
-            double factor2 = 1 - Math.pow(ro(), k - s) - ((k - s) * Math.pow(ro(), k - s) * (1 - ro()));
-            return (factor1Top / factor1Bottom) * factor2;
-        } catch (InvalidSystemException e) {
-            e.printStackTrace();
-        }
-        return 0;
+        double factor1Top = p0() * Math.pow(lambda / miu, s) * ro();
+        double factor1Bottom = Utils.factorial(s) * Math.pow(1 - ro(), 2);
+        double factor2 = 1 - Math.pow(ro(), k - s) - ((k - s) * Math.pow(ro(), k - s) * (1 - ro()));
+        return (factor1Top / factor1Bottom) * factor2;
     }
 
     @Override

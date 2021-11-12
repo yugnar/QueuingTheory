@@ -1,4 +1,4 @@
-public class MmUno {
+public class MmUno implements IModel {
     private double lambda, miu;
 
     public MmUno(double lambda, double miu) {
@@ -28,16 +28,16 @@ public class MmUno {
     }
 
     public double pn(int a){
-        return (1-p())*Math.pow(p(),a);
+        return (1-ro())*Math.pow(ro(),a);
     }
 
-    public double p(){
+    public double ro(){
         //Factor utilizacion
         return lambda / miu;
     }
 
-    public  double po(){
-        return 1 - p();
+    public  double p0(){
+        return 1 - ro();
     }
 
     public double lq(){

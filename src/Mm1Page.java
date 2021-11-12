@@ -12,17 +12,18 @@ public class Mm1Page {
     JTextField pnPoner = new JTextField();
     JButton ejecutar = new JButton("Ejecutar");
     JButton reiniciar = new JButton("Reiniciar");
+    JButton regresar = new JButton("Regresar");
     JLabel lambdaTexto = new JLabel("Tasa media de llegada (lambda)");
     JLabel miuTexto = new JLabel("Tasa media de servicio (miu)");
     JLabel numeroTexto = new JLabel("Numero usuarios");
-    JLabel pnTexto = new JLabel("Probabilidad de n usuarios en el sistema");
+    // JLabel pnTexto = new JLabel("Probabilidad de n usuarios en el sistema");
     JLabel otros = new JLabel("Para otros calculos");
 
     //resultados textos
-    JLabel cn = new JLabel("cn");
+    // JLabel cn = new JLabel("cn");
     JLabel pn = new JLabel("Probabilidad que haya n clientes en el sistema en el tiempo");
     JLabel p = new JLabel("Factor de utilizacion");
-    JLabel po = new JLabel("po");
+    JLabel p0 = new JLabel("p0");
     JLabel lq = new JLabel("Número esperado de clientes en la cola");
     JLabel l = new JLabel("Número esperado de clientes en el sistema");
     JLabel wq = new JLabel("Tiempo esperado de los clientes en la cola");
@@ -31,7 +32,7 @@ public class Mm1Page {
     JLabel cnRes = new JLabel();
     JLabel pnRes = new JLabel();
     JLabel pRes = new JLabel();
-    JLabel poRes = new JLabel();
+    JLabel p0Res = new JLabel();
     JLabel lqRes = new JLabel();
     JLabel lRes = new JLabel();
     JLabel wqRes = new JLabel();
@@ -58,19 +59,20 @@ public class Mm1Page {
         numeroTexto.setBounds(100,350,200,40);
         nPoner.setBounds(100,400,200,40);
 
-        pnTexto.setBounds(100,450,300,40);
-        pnPoner.setBounds(100,500,200,40);
+        // pnTexto.setBounds(100,450,300,40);
+        // pnPoner.setBounds(100,500,200,40);
 
         ejecutar.setBounds(100,600,200,40);
         reiniciar.setBounds(100,700,200,40);
+        regresar.setBounds(10, 10, 100, 30);
 
-        cn.setBounds(500,100,400,40);
-        cn.setVisible(false);
-        cnRes.setBounds(500,125,400,40);
-        cnRes.setVisible(false);
+        // cn.setBounds(500,100,400,40);
+        // cn.setVisible(false);
+        // cnRes.setBounds(500,125,400,40);
+        // cnRes.setVisible(false);
 
-        pn.setBounds(500,175,400,40);
-        pn.setVisible(false);
+        // pn.setBounds(500,175,400,40);
+        // pn.setVisible(false);
         pnRes.setBounds(500,200,400,40);
         pnRes.setVisible(false);
 
@@ -79,10 +81,10 @@ public class Mm1Page {
         pRes.setBounds(500,275,400,40);
         pRes.setVisible(false);
 
-        po.setBounds(500,325,400,40);
-        po.setVisible(false);
-        poRes.setBounds(500,350,400,40);
-        poRes.setVisible(false);
+        p0.setBounds(500,325,400,40);
+        p0.setVisible(false);
+        p0Res.setBounds(500,350,400,40);
+        p0Res.setVisible(false);
 
         lq.setBounds(500,400,400,40);
         lq.setVisible(false);
@@ -109,25 +111,26 @@ public class Mm1Page {
         frameMm1.add(miuPoner);
         frameMm1.add(ejecutar);
         frameMm1.add(reiniciar);
+        frameMm1.add(regresar);
         frameMm1.add(nPoner);
-        frameMm1.add(pnPoner);
+        // frameMm1.add(pnPoner);
         frameMm1.add(lambdaTexto);
         frameMm1.add(miuTexto);
         frameMm1.add(numeroTexto);
-        frameMm1.add(pnTexto);
+        // frameMm1.add(pnTexto);
         frameMm1.add(otros);
-        frameMm1.add(cn);
+        // frameMm1.add(cn);
         frameMm1.add(pn);
         frameMm1.add(p);
-        frameMm1.add(po);
+        frameMm1.add(p0);
         frameMm1.add(lq);
         frameMm1.add(l);
         frameMm1.add(wq);
         frameMm1.add(w);
-        frameMm1.add(cnRes);
+        // frameMm1.add(cnRes);
         frameMm1.add(pnRes);
         frameMm1.add(pRes);
-        frameMm1.add(poRes);
+        frameMm1.add(p0Res);
         frameMm1.add(lqRes);
         frameMm1.add(lRes);
         frameMm1.add(wqRes);
@@ -138,7 +141,7 @@ public class Mm1Page {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (lambdaPoner.getText().isEmpty() || miuPoner.getText().isEmpty() || nPoner.getText().isEmpty() || pnPoner.getText().isEmpty()){
+                if (lambdaPoner.getText().isEmpty() || miuPoner.getText().isEmpty() || nPoner.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "No dejes campos en blanco");
                 } else{
 
@@ -147,22 +150,24 @@ public class Mm1Page {
 
                     MmUno mmuno = new MmUno(lambda,miu);
                     System.out.println("MM1");
+                    /*
                     cnRes.setText(String.valueOf(mmuno.cn(Integer.parseInt(nPoner.getText()))));
                     System.out.println("cn: "+mmuno.cn(Integer.parseInt(nPoner.getText())));
 
                     pnRes.setText(String.valueOf(mmuno.pn(Integer.parseInt(pnPoner.getText()))));
                     System.out.println("pn: "+mmuno.pn(Integer.parseInt(pnPoner.getText())));
-
-                    pRes.setText(String.valueOf(mmuno.p()));
-                    System.out.println("p: "+mmuno.p());
-                    if(mmuno.p() < 1){
-                        JOptionPane.showMessageDialog(null, "El sistema es estable");
+                     */
+                    pRes.setText(String.valueOf(mmuno.ro()));
+                    System.out.println("p: "+mmuno.ro());
+                    if(mmuno.ro() < 1){
+                        JOptionPane.showMessageDialog(null, "El sistema es estable.");
                     }else{
-                        JOptionPane.showMessageDialog(null, "El sistema no es estable");
+                        JOptionPane.showMessageDialog(null, "El sistema no es estable, por favor ingresa un sistema estable.");
+                        return;
                     }
 
-                    poRes.setText(String.valueOf(mmuno.po()));
-                    System.out.println("po: "+mmuno.po());
+                    p0Res.setText(String.valueOf(mmuno.p0()));
+                    System.out.println("po: "+mmuno.p0());
 
                     lqRes.setText(String.valueOf(+mmuno.lq()));
                     System.out.println("lq: "+mmuno.lq());
@@ -186,17 +191,25 @@ public class Mm1Page {
                 desactivarTodo();
             }
         });
+
+        regresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameMm1.setVisible(false);
+                Page pg = new Page();
+                pg.run();
+            }
+        });
     }
 
 
-
     public void activarTodo(){
-        cn.setVisible(true);
-        cnRes.setVisible(true);
+        // cn.setVisible(true);
+        // cnRes.setVisible(true);
         p.setVisible(true);
         pRes.setVisible(true);
-        po.setVisible(true);
-        poRes.setVisible(true);
+        p0.setVisible(true);
+        p0Res.setVisible(true);
         lq.setVisible(true);
         lqRes.setVisible(true);
         l.setVisible(true);
@@ -209,12 +222,12 @@ public class Mm1Page {
         pnRes.setVisible(true);
     }
     public void desactivarTodo(){
-        cn.setVisible(false);
-        cnRes.setVisible(false);
+        // cn.setVisible(false);
+        // cnRes.setVisible(false);
         p.setVisible(false);
         pRes.setVisible(false);
-        po.setVisible(false);
-        poRes.setVisible(false);
+        p0.setVisible(false);
+        p0Res.setVisible(false);
         lq.setVisible(false);
         lqRes.setVisible(false);
         l.setVisible(false);
@@ -228,7 +241,7 @@ public class Mm1Page {
         lambdaPoner.setText("");
         miuPoner.setText("");
         nPoner.setText("");
-        pnPoner.setText("");
+        // pnPoner.setText("");
     }
 
 

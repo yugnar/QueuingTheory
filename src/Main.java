@@ -4,11 +4,7 @@ public class Main {
             MMSK
          */
         Mmsk mmsk = new Mmsk(2, 3, 1, 3);
-        try {
-            System.out.println("ro: " + mmsk.ro());
-        } catch (InvalidSystemException e) {
-            System.out.println(e.getMessage());
-        }
+        System.out.println("ro: " + mmsk.ro());
         System.out.println("cn: " + mmsk.cn(3));
         System.out.println("p0: " + mmsk.p0());
         System.out.println("pk: " + mmsk.pn(mmsk.getK()));
