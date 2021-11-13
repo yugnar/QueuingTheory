@@ -1,8 +1,9 @@
-public class Mmsk implements IModel {
+public class Mmsk extends BaseModel {
     private double lambda, miu;
     private int s, k;
 
-    public Mmsk(double lambda, double miu, int s, int k) {
+    public Mmsk(double lambda, double miu, int s, int k, double cw, double cs) {
+        super(cw, cs);
         this.lambda = lambda;
         this.miu = miu;
         this.s = s;
@@ -121,5 +122,9 @@ public class Mmsk implements IModel {
     @Override
     public double wq() {
         return lq()/ lambdae();
+    }
+
+    public double cost() {
+        return this.cost(lq(), s);
     }
 }

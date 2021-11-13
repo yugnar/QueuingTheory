@@ -205,6 +205,7 @@ public class Mm1Page {
                     int lambda = Integer.parseInt(lambdaPoner.getText());
                     int miu = Integer.parseInt(miuPoner.getText());
 
+                    // OSKI, AQUI PASALE LOS VALORES DE CW Y CS (INPUTS DEL CLIENTE)
                     MmUno mmuno = new MmUno(lambda,miu);
                     System.out.println("MM1");
                     cnRes.setText(String.valueOf(mmuno.cn(Integer.parseInt(nPoner.getText()))));

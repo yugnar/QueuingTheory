@@ -12,6 +12,8 @@ public class MmskPage {
     JTextField miuPoner = new JTextField();
     JTextField sPoner = new JTextField();
     JTextField kPoner = new JTextField();
+    JTextField cwPoner = new JTextField();
+    JTextField csPoner = new JTextField();
     JButton ejecutar = new JButton("Ejecutar");
     JButton reiniciar = new JButton("Reiniciar");
     JButton regresar = new JButton("Regresar");
@@ -19,7 +21,8 @@ public class MmskPage {
     JLabel miuTexto = new JLabel("Tasa media de servicio (miu)");
     JLabel sTexto = new JLabel("Numero de servidores (s)");
     JLabel kTexto = new JLabel("Capacidad (k)");
-    JLabel otros = new JLabel("Para otros calculos");
+    JLabel cwTexto = new JLabel("Costo espera en la fila por tiempo");
+    JLabel csTexto = new JLabel("Costo servidor por tiempo");
 
     // resultados textos
     JLabel cn = new JLabel("cn");
@@ -31,6 +34,7 @@ public class MmskPage {
     JLabel l = new JLabel("Número esperado de clientes en el sistema");
     JLabel wq = new JLabel("Tiempo esperado de los clientes en la cola");
     JLabel w = new JLabel("Tiempo esperado de estancia de los clientes en el sistema ");
+    JLabel costo = new JLabel("Costo toal del servicio");
 
     JLabel cnRes = new JLabel();
     JLabel pRes = new JLabel();
@@ -41,6 +45,7 @@ public class MmskPage {
     JLabel lRes = new JLabel();
     JLabel wqRes = new JLabel();
     JLabel wRes = new JLabel();
+    JLabel costoRes = new JLabel();
 
     public void run() {
 
@@ -57,23 +62,25 @@ public class MmskPage {
         miuTexto.setBounds(100, 200, 200, 40);
         miuPoner.setBounds(100, 250, 200, 40);
 
-        otros.setBounds(100, 300, 200, 40);
+        sTexto.setBounds(100, 300, 200, 40);
+        sPoner.setBounds(100, 350, 200, 40);
 
-        sTexto.setBounds(100, 350, 200, 40);
-        sPoner.setBounds(100, 400, 200, 40);
+        kTexto.setBounds(100, 400, 300, 40);
+        kPoner.setBounds(100, 450, 200, 40);
 
-        kTexto.setBounds(100, 450, 300, 40);
-        kPoner.setBounds(100, 500, 200, 40);
+        cwTexto.setBounds(100, 500, 200, 40);
+        cwPoner.setBounds(100, 550, 200, 40);
 
-        ejecutar.setBounds(100, 600, 200, 40);
-        reiniciar.setBounds(100, 700, 200, 40);
+        csTexto.setBounds(100, 600, 200, 40);
+        csPoner.setBounds(100, 650, 200, 40);
+
+        ejecutar.setBounds(100, 700, 200, 40);
+        reiniciar.setBounds(100, 750, 200, 40);
         regresar.setBounds(10, 10, 100, 30);
 
         /*
-        cn.setBounds(500, 100, 400, 40);
-        cn.setVisible(false);
-        cnRes.setBounds(500, 125, 400, 40);
-        cnRes.setVisible(false);
+         * cn.setBounds(500, 100, 400, 40); cn.setVisible(false); cnRes.setBounds(500,
+         * 125, 400, 40); cnRes.setVisible(false);
          */
         p.setBounds(500, 100, 400, 40);
         p.setVisible(false);
@@ -115,11 +122,18 @@ public class MmskPage {
         wRes.setBounds(500, 650, 400, 40);
         wRes.setVisible(false);
 
+        costo.setBounds(500, 700, 400, 40);
+        costo.setVisible(false);
+        costoRes.setBounds(500, 725, 400, 40);
+        costoRes.setVisible(false);
+
         frameMmsk.add(titulommsk);
         frameMmsk.add(lambdaPoner);
         frameMmsk.add(miuPoner);
         frameMmsk.add(sPoner);
         frameMmsk.add(kPoner);
+        frameMmsk.add(cwPoner);
+        frameMmsk.add(csPoner);
         frameMmsk.add(ejecutar);
         frameMmsk.add(reiniciar);
         frameMmsk.add(regresar);
@@ -127,7 +141,8 @@ public class MmskPage {
         frameMmsk.add(miuTexto);
         frameMmsk.add(sTexto);
         frameMmsk.add(kTexto);
-        frameMmsk.add(otros);
+        frameMmsk.add(cwTexto);
+        frameMmsk.add(csTexto);
         frameMmsk.add(cn);
         frameMmsk.add(p);
         frameMmsk.add(p0);
@@ -137,6 +152,7 @@ public class MmskPage {
         frameMmsk.add(l);
         frameMmsk.add(wq);
         frameMmsk.add(w);
+        frameMmsk.add(costo);
         frameMmsk.add(cnRes);
         frameMmsk.add(pRes);
         frameMmsk.add(p0Res);
@@ -146,6 +162,7 @@ public class MmskPage {
         frameMmsk.add(lRes);
         frameMmsk.add(wqRes);
         frameMmsk.add(wRes);
+        frameMmsk.add(costoRes);
 
         lambdaPoner.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ke) {
@@ -203,6 +220,34 @@ public class MmskPage {
             }
         });
 
+        cwPoner.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent ke) {
+                String value = cwPoner.getText();
+                int l = value.length();
+                if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                    cwPoner.setEditable(true);
+                    cwTexto.setText("Costo espera en la fila por tiempo");
+                } else {
+                    cwPoner.setEditable(false);
+                    cwTexto.setText("* Ingresa solo números (0-9)");
+                }
+            }
+        });
+
+        csPoner.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent ke) {
+                String value = csPoner.getText();
+                int l = value.length();
+                if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                    csPoner.setEditable(true);
+                    csTexto.setText("Costo servidor por tiempo");
+                } else {
+                    csPoner.setEditable(false);
+                    csTexto.setText("* Ingresa solo números (0-9)");
+                }
+            }
+        });
+
         ejecutar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -216,8 +261,10 @@ public class MmskPage {
                     int miu = Integer.parseInt(miuPoner.getText());
                     int s = Integer.parseInt(sPoner.getText());
                     int k = Integer.parseInt(kPoner.getText());
+                    double cwVal = Integer.parseInt(cwPoner.getText());
+                    int csVal = Integer.parseInt(csPoner.getText());
 
-                    Mmsk mmsk = new Mmsk(lambda, miu, s, k);
+                    Mmsk mmsk = new Mmsk(lambda, miu, s, k, cwVal, csVal);
 
                     if (mmsk.ro() < 1) {
                         JOptionPane.showMessageDialog(null, "El sistema es estable.");
@@ -236,6 +283,7 @@ public class MmskPage {
                     lRes.setText(String.valueOf(mmsk.l()));
                     wqRes.setText(String.valueOf(mmsk.wq()));
                     wRes.setText(String.valueOf(mmsk.w()));
+                    costoRes.setText(String.valueOf(mmsk.cost()));
                     activarTodo();
                 }
             }
@@ -275,6 +323,8 @@ public class MmskPage {
         wqRes.setVisible(true);
         w.setVisible(true);
         wRes.setVisible(true);
+        costo.setVisible(true);
+        costoRes.setVisible(true);
     }
 
     public void desactivarTodo() {
@@ -294,10 +344,14 @@ public class MmskPage {
         wqRes.setVisible(false);
         w.setVisible(false);
         wRes.setVisible(false);
+        costo.setVisible(false);
+        costoRes.setVisible(false);
         lambdaPoner.setText("");
         miuPoner.setText("");
         sPoner.setText("");
         kPoner.setText("");
+        cwPoner.setText("");
+        csPoner.setText("");
     }
 
     public void setVisible() {

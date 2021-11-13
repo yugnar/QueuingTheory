@@ -1,7 +1,8 @@
-public class MmUno implements IModel {
+public class MmUno extends BaseModel {
     private double lambda, miu;
 
-    public MmUno(double lambda, double miu) {
+    public MmUno(double lambda, double miu, double cw, double cs) {
+        super(cw, cs);
         this.lambda = lambda;
         this.miu = miu;
     }
@@ -61,5 +62,7 @@ public class MmUno implements IModel {
         return (1/(miu-lambda));
     }
 
-
+    public double cost() {
+        return this.cost(lq(), 1);
+    }
 }
