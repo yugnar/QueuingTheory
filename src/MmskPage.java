@@ -53,7 +53,7 @@ public class MmskPage {
         frameMmsk.setLayout(null);
         frameMmsk.setVisible(false);
 
-        frameMmsk.setBounds(400, 0, 200, 100);
+        //frameMmsk.setBounds(400, 0, 200, 100);
         frameMmsk.setFont(new Font("Helvetica Neue", Font.PLAIN, 50));
 
         lambdaTexto.setBounds(100, 100, 200, 40);
