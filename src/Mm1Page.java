@@ -10,8 +10,6 @@ public class Mm1Page {
     JLabel titulomm1= new JLabel("M/M/1");
     JTextField lambdaPoner = new JTextField();
     JTextField miuPoner = new JTextField();
-    JTextField nPoner = new JTextField();
-    JTextField pnPoner = new JTextField();
     JTextField cwPoner = new JTextField();
     JTextField csPoner = new JTextField();
     JButton ejecutar = new JButton("Ejecutar");
@@ -19,13 +17,9 @@ public class Mm1Page {
     JButton regresar = new JButton("Regresar");
     JLabel lambdaTexto = new JLabel("Tasa media de llegada (lambda)");
     JLabel miuTexto = new JLabel("Tasa media de servicio (miu)");
-    JLabel numeroTexto = new JLabel("Numero usuarios");
-    JLabel pnTexto = new JLabel("Probabilidad de n usuarios en el sistema");
-    JLabel otros = new JLabel("Para otros calculos");
+
 
     //resultados textos
-    JLabel cn = new JLabel("factores Cn del proceso de nacimiento y muerte");
-    JLabel pn = new JLabel("Probabilidad que haya n clientes en el sistema en el tiempo");
     JLabel p = new JLabel("Factor de utilizacion");
     JLabel p0 = new JLabel("p0");
     JLabel lq = new JLabel("Número esperado de clientes en la cola");
@@ -36,8 +30,7 @@ public class Mm1Page {
     JLabel csTexto = new JLabel("Costo servidor por tiempo");
     JLabel costo = new JLabel("Costo total del servicio");
 
-    JLabel cnRes = new JLabel();
-    JLabel pnRes = new JLabel();
+
     JLabel pRes = new JLabel();
     JLabel p0Res = new JLabel();
     JLabel lqRes = new JLabel();
@@ -63,68 +56,52 @@ public class Mm1Page {
         miuTexto.setBounds(100,200,200,40);
         miuPoner.setBounds(100,250,200,40);
 
-        otros.setBounds(100,300,200,40);
 
-        numeroTexto.setBounds(100,300,200,40);
-        nPoner.setBounds(100,350,200,40);
+        ejecutar.setBounds(100, 600, 200, 40);
+        reiniciar.setBounds(100, 650, 200, 40);
 
-        pnTexto.setBounds(100,400,300,40);
-        pnPoner.setBounds(100,450,200,40);
+        cwTexto.setBounds(100, 300, 200, 40);
+        cwPoner.setBounds(100, 350, 200, 40);
 
-        ejecutar.setBounds(100, 700, 200, 40);
-        reiniciar.setBounds(100, 750, 200, 40);
-
-        cwTexto.setBounds(100, 500, 200, 40);
-        cwPoner.setBounds(100, 550, 200, 40);
-
-        csTexto.setBounds(100, 600, 200, 40);
-        csPoner.setBounds(100, 650, 200, 40);
+        csTexto.setBounds(100, 400, 200, 40);
+        csPoner.setBounds(100, 450, 200, 40);
 
         regresar.setBounds(10, 10, 100, 30);
 
-        cn.setBounds(500,100,400,40);
-        cn.setVisible(false);
-        cnRes.setBounds(500,125,400,40);
-        cnRes.setVisible(false);
 
-        pn.setBounds(500,175,400,40);
-        pn.setVisible(false);
-        pnRes.setBounds(500,200,400,40);
-        pnRes.setVisible(false);
-
-        p.setBounds(500,250,400,40);
+        p.setBounds(500,100,400,40);
         p.setVisible(false);
-        pRes.setBounds(500,275,400,40);
+        pRes.setBounds(500,125,400,40);
         pRes.setVisible(false);
 
-        p0.setBounds(500,325,400,40);
+        p0.setBounds(500,150,400,40);
         p0.setVisible(false);
-        p0Res.setBounds(500,350,400,40);
+        p0Res.setBounds(500,175,400,40);
         p0Res.setVisible(false);
 
-        lq.setBounds(500,400,400,40);
+        lq.setBounds(500,200,400,40);
         lq.setVisible(false);
-        lqRes.setBounds(500,425,400,40);
+        lqRes.setBounds(500,225,400,40);
         lqRes.setVisible(false);
 
-        l.setBounds(500,475,400,40);
+        l.setBounds(500,250,400,40);
         l.setVisible(false);
-        lRes.setBounds(500,500,400,40);
+        lRes.setBounds(500,275,400,40);
         lRes.setVisible(false);
 
-        wq.setBounds(500,550,400,40);
+        wq.setBounds(500,300,400,40);
         wq.setVisible(false);
-        wqRes.setBounds(500,575,400,40);
+        wqRes.setBounds(500,325,400,40);
         wqRes.setVisible(false);
 
-        w.setBounds(500,625,400,40);
+        w.setBounds(500,350,400,40);
         w.setVisible(false);
-        wRes.setBounds(500,650,400,40);
+        wRes.setBounds(500,375,400,40);
         wRes.setVisible(false);
 
-        costo.setBounds(500, 700, 400, 40);
+        costo.setBounds(500, 400, 400, 40);
         costo.setVisible(false);
-        costoRes.setBounds(500, 725, 400, 40);
+        costoRes.setBounds(500, 425, 400, 40);
         costoRes.setVisible(false);
 
         frameMm1.add(titulomm1);
@@ -135,24 +112,16 @@ public class Mm1Page {
         frameMm1.add(ejecutar);
         frameMm1.add(reiniciar);
         frameMm1.add(regresar);
-        frameMm1.add(nPoner);
-        frameMm1.add(pnPoner);
         frameMm1.add(lambdaTexto);
         frameMm1.add(miuTexto);
-        frameMm1.add(numeroTexto);
-        frameMm1.add(pnTexto);
         frameMm1.add(cwTexto);
         frameMm1.add(csTexto);
-        frameMm1.add(cn);
-        frameMm1.add(pn);
         frameMm1.add(p);
         frameMm1.add(p0);
         frameMm1.add(lq);
         frameMm1.add(l);
         frameMm1.add(wq);
         frameMm1.add(w);
-        frameMm1.add(cnRes);
-        frameMm1.add(pnRes);
         frameMm1.add(pRes);
         frameMm1.add(p0Res);
         frameMm1.add(lqRes);
@@ -190,39 +159,14 @@ public class Mm1Page {
             }
         });
 
-        nPoner.addKeyListener(new KeyAdapter() {
-            public void keyPressed(KeyEvent ke) {
-                String value = nPoner.getText();
-                int l = value.length();
-                if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-                    nPoner.setEditable(true);
-                    numeroTexto.setText("Numero usuarios");
-                } else {
-                    nPoner.setEditable(false);
-                    numeroTexto.setText("* Ingresa solo números (0-9)");
-                }
-            }
-        });
 
-        pnPoner.addKeyListener(new KeyAdapter() {
-            public void keyPressed(KeyEvent ke) {
-                String value = pnPoner.getText();
-                int l = value.length();
-                if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-                    pnPoner.setEditable(true);
-                    pnTexto.setText("Probabilidad de n usuarios en el sistema");
-                } else {
-                    pnPoner.setEditable(false);
-                    pnTexto.setText("* Ingresa solo números (0-9)");
-                }
-            }
-        });
+
 
         ejecutar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (lambdaPoner.getText().isEmpty() || miuPoner.getText().isEmpty() || nPoner.getText().isEmpty()){
+                if (lambdaPoner.getText().isEmpty() || miuPoner.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "No dejes campos en blanco");
                 } else{
 
@@ -233,11 +177,7 @@ public class Mm1Page {
                     // OSKI, AQUI PASALE LOS VALORES DE CW Y CS (INPUTS DEL CLIENTE)
                     MmUno mmuno = new MmUno(lambda,miu,cwVal, csVal);
                     System.out.println("MM1");
-                    cnRes.setText(String.valueOf(mmuno.cn(Integer.parseInt(nPoner.getText()))));
-                    System.out.println("cn: "+mmuno.cn(Integer.parseInt(nPoner.getText())));
 
-                    pnRes.setText(String.valueOf(mmuno.pn(Integer.parseInt(pnPoner.getText()))));
-                    System.out.println("pn: "+mmuno.pn(Integer.parseInt(pnPoner.getText())));
                     pRes.setText(String.valueOf(mmuno.ro()));
                     System.out.println("p: "+mmuno.ro());
                     if(mmuno.ro() < 1){
@@ -288,8 +228,6 @@ public class Mm1Page {
 
 
     public void activarTodo(){
-        cn.setVisible(true);
-        cnRes.setVisible(true);
         p.setVisible(true);
         pRes.setVisible(true);
         p0.setVisible(true);
@@ -302,14 +240,10 @@ public class Mm1Page {
         wqRes.setVisible(true);
         w.setVisible(true);
         wRes.setVisible(true);
-        pn.setVisible(true);
-        pnRes.setVisible(true);
         costo.setVisible(true);
         costoRes.setVisible(true);
     }
     public void desactivarTodo(){
-        cn.setVisible(false);
-        cnRes.setVisible(false);
         p.setVisible(false);
         pRes.setVisible(false);
         p0.setVisible(false);
@@ -322,12 +256,8 @@ public class Mm1Page {
         wqRes.setVisible(false);
         w.setVisible(false);
         wRes.setVisible(false);
-        pn.setVisible(false);
-        pnRes.setVisible(false);
         lambdaPoner.setText("");
         miuPoner.setText("");
-        nPoner.setText("");
-        pnPoner.setText("");
         cwPoner.setText("");
         csPoner.setText("");
         costoRes.setText("");
