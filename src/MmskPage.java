@@ -34,7 +34,7 @@ public class MmskPage {
     JLabel l = new JLabel("Número esperado de clientes en el sistema");
     JLabel wq = new JLabel("Tiempo esperado de los clientes en la cola");
     JLabel w = new JLabel("Tiempo esperado de estancia de los clientes en el sistema ");
-    JLabel costo = new JLabel("Costo toal del servicio");
+    JLabel costo = new JLabel("Costo total del servicio");
 
     JLabel cnRes = new JLabel();
     JLabel pRes = new JLabel();

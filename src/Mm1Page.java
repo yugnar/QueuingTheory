@@ -12,6 +12,8 @@ public class Mm1Page {
     JTextField miuPoner = new JTextField();
     JTextField nPoner = new JTextField();
     JTextField pnPoner = new JTextField();
+    JTextField cwPoner = new JTextField();
+    JTextField csPoner = new JTextField();
     JButton ejecutar = new JButton("Ejecutar");
     JButton reiniciar = new JButton("Reiniciar");
     JButton regresar = new JButton("Regresar");
@@ -22,7 +24,7 @@ public class Mm1Page {
     JLabel otros = new JLabel("Para otros calculos");
 
     //resultados textos
-    JLabel cn = new JLabel("cn");
+    JLabel cn = new JLabel("factores Cn del proceso de nacimiento y muerte");
     JLabel pn = new JLabel("Probabilidad que haya n clientes en el sistema en el tiempo");
     JLabel p = new JLabel("Factor de utilizacion");
     JLabel p0 = new JLabel("p0");
@@ -30,6 +32,9 @@ public class Mm1Page {
     JLabel l = new JLabel("Número esperado de clientes en el sistema");
     JLabel wq = new JLabel("Tiempo esperado de los clientes en la cola");
     JLabel w = new JLabel("Tiempo esperado de estancia de los clientes en el sistema ");
+    JLabel cwTexto = new JLabel("Costo espera en la fila por tiempo");
+    JLabel csTexto = new JLabel("Costo servidor por tiempo");
+    JLabel costo = new JLabel("Costo total del servicio");
 
     JLabel cnRes = new JLabel();
     JLabel pnRes = new JLabel();
@@ -39,6 +44,8 @@ public class Mm1Page {
     JLabel lRes = new JLabel();
     JLabel wqRes = new JLabel();
     JLabel wRes = new JLabel();
+    JLabel costoRes = new JLabel();
+
 
     public void run(){
 
@@ -58,14 +65,21 @@ public class Mm1Page {
 
         otros.setBounds(100,300,200,40);
 
-        numeroTexto.setBounds(100,350,200,40);
-        nPoner.setBounds(100,400,200,40);
+        numeroTexto.setBounds(100,300,200,40);
+        nPoner.setBounds(100,350,200,40);
 
-        pnTexto.setBounds(100,450,300,40);
-        pnPoner.setBounds(100,500,200,40);
+        pnTexto.setBounds(100,400,300,40);
+        pnPoner.setBounds(100,450,200,40);
 
-        ejecutar.setBounds(100,600,200,40);
-        reiniciar.setBounds(100,700,200,40);
+        ejecutar.setBounds(100, 700, 200, 40);
+        reiniciar.setBounds(100, 750, 200, 40);
+
+        cwTexto.setBounds(100, 500, 200, 40);
+        cwPoner.setBounds(100, 550, 200, 40);
+
+        csTexto.setBounds(100, 600, 200, 40);
+        csPoner.setBounds(100, 650, 200, 40);
+
         regresar.setBounds(10, 10, 100, 30);
 
         cn.setBounds(500,100,400,40);
@@ -108,9 +122,16 @@ public class Mm1Page {
         wRes.setBounds(500,650,400,40);
         wRes.setVisible(false);
 
+        costo.setBounds(500, 700, 400, 40);
+        costo.setVisible(false);
+        costoRes.setBounds(500, 725, 400, 40);
+        costoRes.setVisible(false);
+
         frameMm1.add(titulomm1);
         frameMm1.add(lambdaPoner);
         frameMm1.add(miuPoner);
+        frameMm1.add(cwPoner);
+        frameMm1.add(csPoner);
         frameMm1.add(ejecutar);
         frameMm1.add(reiniciar);
         frameMm1.add(regresar);
@@ -120,7 +141,8 @@ public class Mm1Page {
         frameMm1.add(miuTexto);
         frameMm1.add(numeroTexto);
         frameMm1.add(pnTexto);
-        frameMm1.add(otros);
+        frameMm1.add(cwTexto);
+        frameMm1.add(csTexto);
         frameMm1.add(cn);
         frameMm1.add(pn);
         frameMm1.add(p);
@@ -137,6 +159,8 @@ public class Mm1Page {
         frameMm1.add(lRes);
         frameMm1.add(wqRes);
         frameMm1.add(wRes);
+        frameMm1.add(costo);
+        frameMm1.add(costoRes);
 
         lambdaPoner.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ke) {
@@ -204,9 +228,10 @@ public class Mm1Page {
 
                     int lambda = Integer.parseInt(lambdaPoner.getText());
                     int miu = Integer.parseInt(miuPoner.getText());
-
+                    double cwVal = Integer.parseInt(cwPoner.getText());
+                    int csVal = Integer.parseInt(csPoner.getText());
                     // OSKI, AQUI PASALE LOS VALORES DE CW Y CS (INPUTS DEL CLIENTE)
-                    MmUno mmuno = new MmUno(lambda,miu,0,0);
+                    MmUno mmuno = new MmUno(lambda,miu,cwVal, csVal);
                     System.out.println("MM1");
                     cnRes.setText(String.valueOf(mmuno.cn(Integer.parseInt(nPoner.getText()))));
                     System.out.println("cn: "+mmuno.cn(Integer.parseInt(nPoner.getText())));
@@ -237,6 +262,8 @@ public class Mm1Page {
 
                     wRes.setText(String.valueOf(mmuno.w()));
                     System.out.println("w: "+mmuno.w());
+
+                    costoRes.setText(String.valueOf(mmuno.cost()));
                     activarTodo();
                 }
             }
@@ -277,6 +304,8 @@ public class Mm1Page {
         wRes.setVisible(true);
         pn.setVisible(true);
         pnRes.setVisible(true);
+        costo.setVisible(true);
+        costoRes.setVisible(true);
     }
     public void desactivarTodo(){
         cn.setVisible(false);
@@ -299,6 +328,9 @@ public class Mm1Page {
         miuPoner.setText("");
         nPoner.setText("");
         pnPoner.setText("");
+        cwPoner.setText("");
+        csPoner.setText("");
+        costoRes.setText("");
     }
 
 
