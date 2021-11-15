@@ -26,6 +26,7 @@ public class Page {
     //Ventanas
     Mm1Page mm1 = new Mm1Page();
     MmskPage mmsk = new MmskPage();
+    MmsPage mms = new MmsPage();
 
     public void run(){
 
@@ -73,6 +74,7 @@ public class Page {
         //Iniciar todos
         mm1.run();
         mmsk.run();
+        mms.run();
 
         //Botones
 
@@ -91,6 +93,14 @@ public class Page {
                 frameInicial.setVisible(false);
                 mmsk.setVisible();
 
+            }
+        });
+
+        mmsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameInicial.setVisible(false);
+                mms.setVisible();
             }
         });
 
