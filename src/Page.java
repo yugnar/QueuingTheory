@@ -14,8 +14,9 @@ public class Page {
     JLabel tituloProyecto= new JLabel("Proyecto 2 - Métodos Cuantitativos y Simulación", SwingConstants.CENTER);
     JLabel tituloNumeros = new JLabel("Teoria de colas", SwingConstants.CENTER);
     JLabel labelEquipo = new JLabel("Miembros del equipo: Oscar Contreras, Jorge Akio Olvera, Miguel Hernández, Mónica Lara & Rafael Rojas.", SwingConstants.CENTER);
-    JLabel labelExplicacion = new JLabel("<html><p>Este programa muestra las diferenties teorias de colas. " +
-            "Se encuentra los método de 1) MM1 \n 2) MMSK \n 3)OTRO \n  4)OTRO " );
+    JLabel labelExplicacion = new JLabel("<html><p>Este programa muestra el uso de teoría de colas para calcular diferentes parámetros bajo diferentes mdoelos. " +
+            "Se encuentran disponibles los métodos de 1) M/M/1 \n 2) M/M/s \n 3) M/M/s/K \n y 4) M/(G/D/Ek)/1. " +
+            "Adicionalmente, todos los modelos son capaces de calcular los costos de espera en la fila por tiempo y los costos de servidor por tiempo.");
 
     //Botones
     JButton mm1Buttton=new JButton("M/M/1");
@@ -27,6 +28,7 @@ public class Page {
     Mm1Page mm1 = new Mm1Page();
     MmskPage mmsk = new MmskPage();
     MmsPage mms = new MmsPage();
+    MgUnoPage mg1 = new MgUnoPage();
 
     public void run(){
 
@@ -75,6 +77,7 @@ public class Page {
         mm1.run();
         mmsk.run();
         mms.run();
+        mg1.run();
 
         //Botones
 
@@ -104,11 +107,15 @@ public class Page {
             }
         });
 
+        mg1Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frameInicial.setVisible(false);
+                mg1.setVisible();
+            }
+        });
 
     }
-
-
-
 
     public void setVisible(){
         frameInicial.setVisible(true);
