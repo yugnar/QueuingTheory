@@ -23,7 +23,7 @@ public class MgUnoPage {
     JLabel modelTexto = new JLabel("Selecciona el modelo a utilizar.");
     JLabel lambdaTexto = new JLabel("Tasa media de llegada (lambda)");
     JLabel miuTexto = new JLabel("Tasa media de servicio (miu)");
-    JLabel varianzaTexto = new JLabel("Varianza (solo M/G/1)");
+    JLabel varianzaTexto = new JLabel("Desviación Estándar (solo M/G/1)");
 
 
     //resultados textos
@@ -261,7 +261,7 @@ public class MgUnoPage {
                 }
 
                 if (lambdaPoner.getText().isEmpty() || miuPoner.getText().isEmpty() || csPoner.getText().isEmpty() || cwPoner.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No dejes los campos básicos en blanco. (Varianza y K pueden estar vacíos depende del modelo seleccionado.)");
+                    JOptionPane.showMessageDialog(null, "No dejes los campos básicos en blanco. (STD y K pueden estar vacíos depende del modelo seleccionado.)");
                 } else {
                     double lambda = Double.parseDouble(lambdaPoner.getText());
                     double miu = Double.parseDouble(miuPoner.getText());
